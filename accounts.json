@@ -1,0 +1,46 @@
+{
+  "accounts": [
+    {
+      "userId": "uf9586259e42bc96a",
+      "email": "moonlightwolf12575@gmail.com",
+      "name": "Moonlight Wolf",
+      "salt": "0840f2cb916c4119",
+      "passwordHash": "e7937e806be4fb07574925c8fafcda8bffac1d7c4a522705473aea4a7bd060ca",
+      "token": "57647ff2e44e9c63eb3ce8e03fa9d7971e17d3918586e774",
+      "coins": 9007199254740991,
+      "gems": 9007199254740991,
+      "level": 0,
+      "xp": 0,
+      "xpNextLvl": 0,
+      "avatar": ""
+    },
+    {
+      "userId": "u68e72ad0b08a4895",
+      "email": "tester@example.com",
+      "name": "Tester",
+      "salt": "076a1aabb66ce061",
+      "passwordHash": "8f1f439f220871af2166aaeb1acf01a7ab0ca3bd26e785dc20f4053797b49439",
+      "token": "7d271fce9c3fc7f274959353c6c807f85eac03f980067f0a",
+      "coins": 500,
+      "gems": 10,
+      "level": 0,
+      "xp": 0,
+      "xpNextLvl": 0,
+      "avatar": ""
+    },
+    {
+      "userId": "u8bb93180719dce2a",
+      "email": "tunnel@test.com",
+      "name": "Tunnel",
+      "salt": "d5ee75d39e9e289d",
+      "passwordHash": "baaa5b07bdf4cd1da7357111efed0541d619d7fa693ba8a397b2d075c2a7cc11",
+      "token": "0e10018e9bf97c38eda2cc7cb0901f4147ae8952c6fa7b8d",
+      "coins": 500,
+      "gems": 10,
+      "level": 0,
+      "xp": 0,
+      "xpNextLvl": 0,
+      "avatar": ""
+    }
+  ]
+}

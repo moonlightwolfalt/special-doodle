@@ -1,0 +1,151 @@
+{
+  "files": [
+    {
+      "archived_from": "https://mope.io/",
+      "local_path": "index.html",
+      "timestamp": "20210621022656",
+      "url": "https://mope.io/"
+    },
+    {
+      "archived_from": "https://mope.io/adblockdet/ads.js",
+      "local_path": "adblockdet/ads.js",
+      "size": 23,
+      "timestamp": "20210612030252",
+      "url": "https://mope.io/adblockdet/ads.js"
+    },
+    {
+      "archived_from": "https://mope.io/client.js?x=1624002516959",
+      "local_path": "client.js_x_1624002516959",
+      "size": 3551195,
+      "timestamp": "20210621064105",
+      "url": "https://mope.io/client.js?x="
+    },
+    {
+      "archived_from": "https://mope.io/dfp.js",
+      "local_path": "dfp.js",
+      "size": 144,
+      "timestamp": "20210612030305",
+      "url": "https://mope.io/dfp.js"
+    },
+    {
+      "archived_from": "https://mope.io/favicon.ico",
+      "local_path": "favicon.ico",
+      "size": 4773,
+      "timestamp": "20210620051256",
+      "url": "https://mope.io/favicon.ico"
+    },
+    {
+      "archived_from": "https://mope.io/jquery_3_3_1.js",
+      "local_path": "jquery_3_3_1.js",
+      "size": 86929,
+      "timestamp": "20210612030247",
+      "url": "https://mope.io/jquery_3_3_1.js"
+    },
+    {
+      "archived_from": "https://mope.io/main_nerged.css?v=live.257",
+      "local_path": "main_nerged.css_v_live.257",
+      "size": 67798,
+      "timestamp": "20210612030241",
+      "url": "https://mope.io/main_nerged.css?v=live.257"
+    },
+    {
+      "archived_from": "https://mope.io/shop/exp.png",
+      "local_path": "shop/exp.png",
+      "size": 31425,
+      "timestamp": "20210527192657",
+      "url": "https://mope.io/shop/exp.png"
+    },
+    {
+      "archived_from": "https://mope.io/shop/left.png",
+      "local_path": "shop/left.png",
+      "size": 2965,
+      "timestamp": "20210527192659",
+      "url": "https://mope.io/shop/left.png"
+    },
+    {
+      "archived_from": "https://mope.io/shop/right.png",
+      "local_path": "shop/right.png",
+      "size": 2910,
+      "timestamp": "20210527192701",
+      "url": "https://mope.io/shop/right.png"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/Lato-Bold.5dd5aa02.ttf",
+      "local_path": "static/media/Lato-Bold.5dd5aa02.ttf",
+      "size": 36353,
+      "timestamp": "20210602095037",
+      "url": "https://mope.io/static/media/Lato-Bold.5dd5aa02.ttf"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/Lato-Regular.9919edff.ttf",
+      "local_path": "static/media/Lato-Regular.9919edff.ttf",
+      "size": 75136,
+      "timestamp": "20210608082157",
+      "url": "https://mope.io/static/media/Lato-Regular.9919edff.ttf"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/check-solid.bd49f52b.svg",
+      "local_path": "static/media/check-solid.bd49f52b.svg",
+      "size": 499,
+      "timestamp": "20210527192714",
+      "url": "https://mope.io/static/media/check-solid.bd49f52b.svg"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/coin.5c6fada9.png",
+      "local_path": "static/media/coin.5c6fada9.png",
+      "size": 37295,
+      "timestamp": "20210602095039",
+      "url": "https://mope.io/static/media/coin.5c6fada9.png"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/coins.87289ba6.png",
+      "local_path": "static/media/coins.87289ba6.png",
+      "size": 45204,
+      "timestamp": "20210527192709",
+      "url": "https://mope.io/static/media/coins.87289ba6.png"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/deals.d4848912.png",
+      "local_path": "static/media/deals.d4848912.png",
+      "size": 396216,
+      "timestamp": "20210527192711",
+      "url": "https://mope.io/static/media/deals.d4848912.png"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/play_apple.f34e9a28.svg",
+      "local_path": "static/media/play_apple.f34e9a28.svg",
+      "size": 4560,
+      "timestamp": "20210602095037",
+      "url": "https://mope.io/static/media/play_apple.f34e9a28.svg"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/play_google.1d8f7bc8.svg",
+      "local_path": "static/media/play_google.1d8f7bc8.svg",
+      "size": 3586,
+      "timestamp": "20210602095037",
+      "url": "https://mope.io/static/media/play_google.1d8f7bc8.svg"
+    },
+    {
+      "archived_from": "https://mope.io/static/media/skins.1f160aed.png",
+      "local_path": "static/media/skins.1f160aed.png",
+      "size": 59592,
+      "timestamp": "20210527192706",
+      "url": "https://mope.io/static/media/skins.1f160aed.png"
+    },
+    {
+      "archived_from": "https://mope.io/ui_build/static/css/main.css",
+      "local_path": "ui_build/static/css/main.css",
+      "size": 146551,
+      "timestamp": "20210623065108",
+      "url": "https://mope.io/ui_build/static/css/main.css"
+    },
+    {
+      "archived_from": "https://mope.io/ui_build/ui_bundle.js",
+      "local_path": "ui_build/ui_bundle.js",
+      "size": 315001,
+      "timestamp": "20210623065110",
+      "url": "https://mope.io/ui_build/ui_bundle.js"
+    }
+  ],
+  "target_date": "2021-06-21"
+}

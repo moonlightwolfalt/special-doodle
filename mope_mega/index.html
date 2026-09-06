@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+  body {
+    background-color: #06af22;
+  }
+
+  #interfacev2 {
+    position: fixed;
+  }
+
+  hr {
+    height: 1px;
+    border: 0px;
+    background: #ffffff;
+  }
+
+  #turnstile {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000a0;
+    z-index: 10000;
+  }
+</style>
+
+<head>
+  <title>mope.io</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable  =no" /> -->
+  <meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width" />
+  <meta name="description" content="Survive and climb the food chain in mopeio, the hit browser game!">
+  <meta name="keywords"
+    content="mope, mope.io, mopeio,io games, .io, spaceships, browser game, html game, html5 game, agario, diepio, flash game, space, multiplayer">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="google-site-verification" content="HjdDaF_uw12IxXRm3hOS03tqv9QW8Lj5b74mlJGsRz0" />
+  <meta property="og:image" content="img/share_banner.jpg">
+  <meta property="og:image:type" content="image/jpg">
+  <meta property="og:image:width" content="1263">
+  <meta property="og:image:height" content="707">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="3 days">
+  <meta name="googlebot" content="all">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="main_nerged.css">
+
+  <!-- AdinPlay -->
+ <!-- <script>
+    window.aiptag = window.aiptag || { cmd: [] };
+    aiptag.cmd.display = aiptag.cmd.display || [];
+    aiptag.cmd.player = aiptag.cmd.player || [];
+    //CMP tool settings
+    aiptag.cmp = {
+      show: true,
+      position: "centered",  //centered, bottom
+      button: false,
+      buttonText: "Privacy settings",
+      buttonPosition: "bottom-left" //bottom-left, bottom-right, bottom-center, top-left, top-right
+    }
+    aiptag.cmd.player.push(function () {
+      aiptag.adplayer = new aipPlayer({
+        AIP_REWARDEDNOTGRANTED: function (state) {
+          //This event is fired when a rewarded ad is:
+          //timed out, empty, unsupported or closed by the user.
+          //don't grant the reward here
+          const evt = new CustomEvent("aip-reward-status", { state: state });
+          window.dispatchEvent(evt);
+        },
+        AIP_REWARDEDGRANTED: function () {
+          const evt = new CustomEvent("aip-reward-granted");
+          window.dispatchEvent(evt);
+        },
+        AD_WIDTH: 960,
+        AD_HEIGHT: 540,
+        AD_DISPLAY: 'default', //default, fullscreen, fill, center, modal-center
+        LOADING_TEXT: 'loading advertisement',
+        PREROLL_ELEM: function () { return document.getElementById('eg-video-player') },
+        AIP_COMPLETE: function (state) {
+          console.log("Video ad finished", window.onVideoAdFinished)
+          window.onVideoAdFinished();
+        }
+      });
+    });
+    function show_videoad() {
+      //check if the adslib is loaded correctly or blocked by adblockers etc.
+      if (typeof aiptag.adplayer !== 'undefined') {
+        aiptag.cmd.player.push(function () { aiptag.adplayer.startVideoAd(); });
+      } else {
+        //Adlib didnt load this could be due to an adblocker, timeout etc.
+        //Please add your script here that starts the content, this usually is the same script as added in AIP_COMPLETE.
+        //alert("Ad Could not be loaded, load your content here");
+        aiptag.adplayer.aipConfig.AIP_COMPLETE();
+      }
+ } </script>-->
+
+  
+   	<script>window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+	<script data-cfasync="false" async src="https://s.nitropay.com/ads-2206.js"></script>
+  
+  <script>
+    function isWithinCrazyGames() {
+      const urlParams = new URLSearchParams(self.location.search);
+
+      return urlParams.has("crazygames");
+    }
+
+    if (!isWithinCrazyGames()) {
+      /*var head = document.getElementsByTagName('head')[0];
+      var js = document.createElement("script");
+      js.src = "//api.adinplay.com/libs/aiptag/pub/DIE/mope.io/tag.min.js"
+      js.type = "text/javascript";
+      js.async = true
+      if (!window.ReactNativeWebView) head.appendChild(js);*/
+    } 
+  </script>
+
+
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" href="main_nerged.css?v=live.257" /> -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Jquery -->
+  <script src="jquery_3_3_1.js"></script>
+  <script src="https://apis.google.com/js/api:client.js"></script>
+
+  <!-- Turnstile -->
+  <script id="turnstile-script" src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=run" async
+    defer></script>
+
+
+
+
+  <!-- Begin comScore Tag -->
+  <script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "22419751" });
+    (function () {
+      var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+      s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+      el.parentNode.insertBefore(s, el);
+    })();
+  </script>
+  <noscript>
+    <img src="https://sb.scorecardresearch.com/p?c1=2&c2=22419751&cv=2.0&cj=1" />
+  </noscript>
+  <!-- End comScore Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36494583-11"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-36494583-11', { cookie_flags: 'secure;samesite=none' });
+  </script>
+  <script data-cfasync="false" type="text/javascript">
+    //ONLY LOAD AD SCRIPTS IF NOT MOBILE APP
+    function getQueryParams(qs) {
+      qs = qs.split("+").join(" ");
+      var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+      while ((tokens = re.exec(qs))) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+      }
+      return params;
+    }
+    var $_GET = getQueryParams(document.location.search);
+
+    //read link/ app flags
+    window.isMobileAppIOS = $_GET["mobileios"] > 0;
+    window.isMobileAppAndroid = $_GET["mobileAndroid"] > 0;
+    window.isMobileApp = window.isMobileAppIOS || window.isMobileAppAndroid;
+    window.SmartPhone = {
+      isAndroid: function () {
+        return navigator.userAgent.match(/Android/i);
+      },
+      isBlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      isIOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      isOpera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      isWindows: function () {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+      },
+      isAny: function () {
+        return (SmartPhone.isAndroid() || SmartPhone.isBlackBerry() || SmartPhone.isIOS() || SmartPhone.isOpera() || SmartPhone.isWindows());
+      }
+    }
+    window.isMobileDevice = window.SmartPhone.isAny();
+    console.log("Using a mobile device? " + isMobileDevice);
+    if (!isMobileApp && location.href.indexOf("http") > -1) {
+      try {
+        function randomIntFromInterval(min, max) { // min and max included
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+      } catch (err) {
+      }
+    }
+
+    //<!-- FREESTAR .io PLACE THIS SECTION INSIDE OF YOUR HEAD TAGS -->
+    /*var freestar = freestar || {};
+    freestar.hitTime = Date.now();
+    freestar.queue = freestar.queue || [];
+    freestar.config = freestar.config || {};
+    freestar.debug = window.location.search.indexOf('fsdebug') === -1 ? false : true;
+
+    // Tag IDs set here, must match Tags served in the Body for proper setup
+    freestar.config.enabled_slots = [
+      "mope_300x250_336x280_top",
+      "mope_970x90_728x90_bottom"
+    ];
+
+    ! function(a, b) {
+      var c = b.getElementsByTagName("script")[0],
+        d = b.createElement("script"),
+        e = "https://a.pub.network/mope-io";
+      e += freestar.debug ? "/qa/pubfig.min.js" : "/pubfig.min.js", d.async = !0, d.src = e, c.parentNode.insertBefore(d, c)
+    }(window, document);
+    */
+  </script>
+  <script src="adblockdet/ads.js"></script>
+</head>
+
+<body>
+
+
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N35BF44" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- <link rel="stylesheet" href="ui_build/static/css/main.css" /> -->
+
+  <!--<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="../js/js_src/interfacev2/src/index.js"></script> -->
+
+  <div id="loginButtons" class=".loginButtons">
+    <div class="container loginContainer">
+      <button id="googleLoginBtn" class="googleLoginBtn">Login with Google</button>
+      <button id="facebookLoginBtn" class="facebookLoginBtn">Login with Facebook</button>
+
+      <button id="appleLoginBtn" class="appleLoginBtn">Login with Apple</button>
+      <button id="discordLoginBtn" class="discordLoginBtn">Login with Discord</button>
+    </div>
+  </div>
+  <div id="moneyRectBottomWrap">
+    <div id="moneyRectBottom">
+      <div id='mope-io_728x90'>
+      </div>
+    </div>
+  </div>
+  <div class="endScreenOuter" style="display: none;">
+    <div class="endScreenInner">
+      <div class="endScreenInfoBlock">
+
+        <div class="title">
+          YOU WERE #<span class="endScreenResultRank"></span>
+        </div>
+
+        <div class="info-box">
+          <div class="killedBy">
+            <div class="label">Killed by:</div>
+            <div class="value"></div>
+          </div>
+          <div class="playTime">
+            <div class="label">Time alive:</div>
+            <div class="value"></div>
+          </div>
+          <div class="totalKills">
+            <div class="label">Total kills:</div>
+            <div class="value"></div>
+          </div>
+          <div class="maxXp">
+            <div class="label">Maximum XP:</div>
+            <div class="value"></div>
+          </div>
+          <div class="wins1v1">
+            <div class="label">1v1 Wins:</div>
+            <div class="value"></div>
+          </div>
+          <div>
+            <div class="label">Spawn XP:</div>
+            <div class="value" id="spawnXpLabel"></div>
+          </div>
+          <div class="twoColumns">
+            <div class="label">Earned coins:</div>
+            <div class="value" id="plusCoinsLabel"></div>
+          </div>
+          <!-- <p id="spawnXpLabel">
+                      </p>
+                      <div id=plusCoins title="Earned coins">
+                        <img src="shop/mopecoin.png" class="buycoin-img">
+                        <span id="plusCoinsLabel" class="coins">loading....</span>
+                      
+                      </div> -->
+        </div>
+      </div>
+      <div class='btnInnerDiv'>
+
+        <button id='btnContinueEndScreen' class=' btn'> CONTINUE </button>
+      </div>
+    </div>
+  </div>
+  <div id="gameAreaWrapper">
+    <!--<a style="z-index:1000000;"><button id="testingButton">TEST: SHOW/HIDE MENU TO REFRESH ADS</button> </a> -->
+
+    <input id="chatinput" type="text" class="chat-input" placeholder="Chat here..." maxlength="35" />
+    <canvas tabindex="1" id="gCanvas"></canvas>
+  </div>
+
+  <div id="startMenuWrapper">
+    <div id="xsollaStoreFrameWrapper">
+      <div id="xsollaStoreAndButton">
+        <!-- loading animation -->
+        <div class="loadingAnim_xsolla" id="loadingAnim_xsolla" style="display: none;">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div id="xsollaStoreCloseButton"><img src="shop/close.png"></div>
+
+        <div id="xsollaStoreInnerDiv"></div>
+        <div class="xsollaStoreItems">
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- <div id="BETADIV" style="    position: relative;
+    top: 10px;
+    left: 16px;
+    background: red;
+    width: 211px;
+    padding: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    border: 2px solid white;">
+      <strong>WARNING:</strong> MOPE BETA IS FOR TESTING PURPOSE ONLY. MOPE BETA CAN CRASH/RESTART/DISCONNECT/UPDATE
+      FREQUENTLY. ITS
+      NOT FOR PROLONGED GAMEPLAY.
+
+    </div> -->
+    <div id="updates" class="boxshadow">
+
+
+      <div style="
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    width: 200px;
+    overflow-y: scroll;
+    font-size: 10px;
+    background-color: rgba(9, 153, 47, 0.52);
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;">
+
+        <div class="devhead" style=" color:#fff;
+    color: #fff;
+    margin: 0 auto;
+    background-color: #09992f;
+    padding: 3px;
+    font-size: 14px;transform:scale(1.2);    width: 155px;
+          ">UPDATES</div>
+      </div>
+      <div id="updatesDiv" style="border-radius: 0px;">
+        <h2>Loading updates, please be patient...</h2>
+      </div>
+      <div id="ytDiv">
+        <div style="margin-top: 20px;margin-bottom: 7px;text-align:center;">
+
+          <div class="devhead" style=" color:#fff;
+        margin: 0 auto;
+        width: 160px;
+        height: 14px;
+        background-color: #09992f;
+        padding: 3px;transform:scale(1.2);
+        margin-top: 10px; margin-bottom: 10px; font-size:14px;
+        ">Mope.io
+            Community</div>
+          <h2>
+            Tell us your ideas/bugs on discord:<br />
+            <a href="https://discord.com/invite/nQAVB9c">Discord Server</a>
+            <br />
+            <a href="https://www.reddit.com/r/mopeio/" target="_blank">Reddit</a>
+            <a href="https://support.vexxusarts.com/submit-ticket/2-mopeio" target="_blank">Support</a>
+            <a href="updates.html" target="_blank">Changelog</a>
+            <a href="privacy/index.html" target="_blank">Privacy</a>
+            <a href="https://mopeio.fandom.com/wiki/Home">Official Wiki</a>
+            <a id="moreGames" href="https://wackagames.com/" target="_blank">More IO Games</a>
+        </div>
+        <div id="ytButton" style="margin-top: 20px;margin-bottom: 7px;text-align:center;transform:scale(1.2);">
+          <!-- 
+          <script src="https://apis.google.com/js/platform.js"></script> -->
+
+          <h2 style=" color:#f1c34c;margin-top: 10px;">Mistik</h2>
+          <script src="https://apis.google.com/js/platform.js"></script>
+          <div class="g-ytsubscribe" data-channelid="UCwafGcuGGypkqpV7eZdmlSw" data-layout="default" data-theme="dark"
+            data-count="default"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="startMenu">
+      <div id="mopeMenu" class="boxshadow">
+
+        <img id="logo" src="img/logo.png" />
+        <div id="onconnectDiv" style="visibility:visible;">
+          <br />
+          <select id="serverSelect">
+            <option>
+              Finding Server...
+            </option>
+          </select>
+
+
+          <div id="onPlayReadyWrap">
+            <div class="optionsBtn">
+              <button id="settingsButton" class="button" type="submit"
+                style="background-color:transparent; border-color:transparent;">
+                <img src="img/settings.png" width=30 height=30 />
+              </button>
+
+
+            </div>
+
+
+            <div id="nickInputContainer" style="display: block;">
+              <input id="nickInput" autofocus placeholder="Your name" maxlength="15"
+                style="width: 100%; height: 40px; line-height: 36px;">
+            </div>
+
+
+            <p id="serverResponse">
+            </p>
+            <div id="moneyRectWrap">
+              <div id="moneyRect">
+                <div id='mope-io_300x250'>
+                </div>
+              </div>
+
+
+              <a>
+                <button id="startButton" class="startButton1">Play</button>
+              </a>
+            </div>
+
+            <div id="connecting">
+              <div class="connecting-inner">
+                <div id="conimgContainer">
+                  <img class="conimg" src="/assets/s/1/skins/land/mouse/0/mouse.png" width="80px" />
+                </div>
+                <p>Connecting...</p>
+                <p id="txtServer" style="font-size:14px;">
+
+                </p>
+              </div>
+            </div>
+
+
+          </div>
+          <div id="optionsDiv">
+            <button id="closeBut" type="submit" class="button"
+              style="background-color:transparent; border-color:transparent;">
+              <img src="img/x.png" width=35 height=35 />
+            </button>
+
+
+            <button id="button_mute" class="button" type="submit"
+              style="background-color:transparent; border-color:transparent;">
+              <img id="button_mute_img" src="img/sound_on.png" width=30 height=30 title="Mute/unmute sounds" />
+            </button>
+
+            <div id="options_graphicsButs">
+              <p>Graphics (Use Medium/Low if the game lags for you) </p>
+              <p id="graphics_fps">FPS: (...)</p>
+
+              <button id="graphicsBut_low">Low Graphics</button>
+              <button id="graphicsBut_med">Medium Graphics</button>
+              <button id="graphicsBut_hd">High Graphics</button>
+            </div>
+
+
+            <h3>Options:</h3>
+            <div id="optionsContainer">
+            </div>
+            <br />
+            <a>
+              <button id="btnSpectate" style="display:block">Spectate</button>
+            </a>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="footer">
+        <h2 class="announcement">ANNOUNCEMENT</h2>
+        <h4>Halloween mode has been enabled! All new Halloween skins have been added!</h4>
+
+        <div class="button-container">
+          <a href="https://discord.com/invite/nQAVB9c" class="join-button" target="_blank">
+            Join Discord
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="rightSide">
+
+
+      <div id="loginDiv" class="boxshadow">
+        <!-- <p id="login_SBLabel" style="color: white;margin-bottom: 2px;margin-top: 0px;text-align: center;display:none;">
+          Testing Mode
+        </p> -->
+
+
+        <div id="notLoggedInDiv">
+
+          <p id="notLoggedInTxt">Log in to earn coins and unlock new skins! <img src="shop/mopecoin.png" width=15px
+              height=15px class="buycoin-img" /></p>
+
+          <div id="divButtons">
+            <a>
+              <button id="shopbutton2" class="shopButton1">Shop</button>
+              <button id="btnLogin" class="btnLogin">LOGIN</button>
+
+            </a>
+          </div>
+          <script>
+            //start google signin code
+            //loadGoogleLoginStuff();
+          </script>
+        </div>
+        <div id="onloggedInDiv" style="display:none;">
+          <div>
+            <img id="loggedInUserImg" src="" />
+            <p id="loggedInNameTxt">account name...</p>
+          </div>
+
+          <div id=login_coins title="add more coins">
+            <img src="shop/mopecoin.png" class="buycoin-img">
+            <span id="loginCoins" class="coins">loading....</span>
+          </div>
+
+          <div id=login_gems title="add more gems">
+            <img src="shop/gem.png" class="buycoin-img">
+            <span id="loginGems" class="gems">loading....</span>
+          </div>
+
+          <div id="divLogoutBtn2">
+            <!-- Dirty to have separate buttons -->
+            <button id="shopbutton3" class="shopButton1">Shop</button>
+            <button id="btnLogout2" class="btnLogout2">LOGOUT</button>
+          </div>
+        </div>
+      </div>
+      <div id="appsDiv"><a id="appAdIOS" href="https://apps.apple.com/us/app/mope-io/id1086471119" target="_blank"><img
+            src="./img/appAd_ios.png" width="132" height="82" alt="GET THE IOS APP!" /></a><a id="appAdAndroid"
+          href="https://play.google.com/store/apps/details?id=com.StanTatarnykov.MopeioAndroid" target="_blank"><img
+            src="./img/appAd_and.png" width="132" height="52" alt="GET THE Android APP!" /></a></div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+  <!-- adblock detect -->
+  <script src="/dfp.js" type="text/javascript"></script>
+  <!-- curse adex (end marker) -->
+  <div id='cdm-zone-end'></div>
+
+
+  </div>
+
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"27ea0957589246938b0d3ecf35b4bdc1","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+<script>
+  //if (typeof turnstile != 'undefined') run();
+
+  function run() {
+    var script = document.createElement('script');
+    script.src = 'client.js?v=' + (+new Date());
+    script.async = false;
+    script.defer = true;
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+  }
+
+</script>
+<!-- copyright 2020 Shockwave LLC. You may use images/videos of mope.io commercially. All rights reserved. -->
+<!-- business contact at info@mope.io -->
+
+
+
+</html>
